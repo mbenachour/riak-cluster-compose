@@ -1,0 +1,14 @@
+riak_seed:
+ image: hectcastro/riak
+ ports:
+  - 8098
+  - 8087
+ env_file: riak_cluster.env
+riak_node:
+ image: hectcastro/riak
+ ports:
+  - 8098
+  - 8087
+ links:
+  - riak_seed:seed
+ env_file: riak_cluster.env
